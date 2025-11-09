@@ -1,12 +1,135 @@
-<!DOCTYPE html>
-<html lang="pt/br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
-</head>
-<body>
-    <p>É assim gidao, é assim que faz primo...
-    HASAGI!</p>
-</body>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nossos Produtos - Forno Nobre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .produtos-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 24px;
+          margin-top: 24px;
+      }
+
+      .produto {
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 14px;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+          padding: 16px;
+          text-align: center;
+          transition: transform 0.22s ease, box-shadow 0.22s ease;
+      }
+
+      .produto:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+      }
+
+      .produto img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 12px;
+      }
+
+      .produto h3 {
+          margin: 6px 0;
+          color: #3b5d34;
+          font-size: 1.05rem;
+      }
+
+      .produto p {
+          font-size: 0.95rem;
+          color: #5a3f2a;
+          line-height: 1.3;
+      }
+
+      .menu a {
+          background: #3b5d34;
+          color: #fff;
+          padding: 8px 14px;
+          border-radius: 8px;
+          text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="center">
+        <div class="logo">
+          <img src="logo/logo.png" alt="Logo Forno Nobre" />
+        </div>
+        <div class="menu">
+          <a href="index.html">VOLTAR À PÁGINA INICIAL</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Nossos Produtos</h2>
+        <p>Seleção artesanal — pães, bolos e cafés preparados com ingredientes selecionados e carinho.</p>
+
+        <div class="produtos-grid">
+
+          <!-- Pão Artesanal -->
+          <article class="produto">
+            <div class="logo"><img src="logo/PAO.jpg"></div>
+            <h3>Pão Artesanal</h3>
+            <p>Crocante por fora e macio por dentro. Feito com fermentação natural e farinha selecionada.</p>
+          </article>
+
+          <!-- Bolo de Chocolate -->
+          <article class="produto">
+             <div class="logo"><img src="logo/BOLO.webp"></div>
+            <h3>Bolo de Chocolate</h3>
+            <p>Receita caseira com cacau puro e cobertura cremosa — ideal para acompanhar o café da manhã.</p>
+          </article>
+
+          <!-- Café Gourmet -->
+          <article class="produto">
+            <div class="logo"><img src="logo/CAFE.webp"></div>
+            <h3>Café Gourmet</h3>
+            <p>Grãos selecionados e torra artesanal para um aroma intenso e sabor encorpado.</p>
+          </article>
+
+          <!-- Croissant de Manteiga -->
+          <article class="produto">
+            <div class="logo"><img src="logo/CRO.jpg"></div>
+            <h3>Croissant de Manteiga</h3>
+            <p>Folhado, leve e amanteigado — perfeito para o café da manhã ou lanche da tarde.</p>
+          </article>
+
+          <!-- Bolo de Frutas -->
+          <article class="produto">
+            <div class="logo"><img src="logo/fruta.jpg"></div>
+            <h3>Bolo de Frutas</h3>
+            <p>Feito com frutas frescas da estação — leve, aromático e ideal para partilhar.</p>
+          </article>
+
+          <!-- Pão de Queijo -->
+          <article class="produto">
+            <div class="logo"><img src="logo/queijo.webp"></div>
+            <h3>Pão de Queijo</h3>
+            <p>Tradição mineira: casquinha levemente crocante e miolo macio e cheio de queijo.</p>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>Siga-nos no Instagram:</p>
+        <a href="https://www.instagram.com/fornonobreoficial?igsh=MWl4cDAyYXJ6MmdqdQ==" target="_blank">
+          <img src="logo/insta.png" width="85" alt="Instagram da Forno Nobre" class="insta">
+        </a>
+        <p class="copy">© 2025 Forno Nobre - Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </body>
 </html>
