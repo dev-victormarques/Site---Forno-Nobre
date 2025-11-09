@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nossas Lojas - Forno Nobre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        background: #fffaf5;
+        color: #3b3b3b;
+      }
+
+      header {
+        background: #3b5d34;
+        padding: 16px 0;
+        color: white;
+        text-align: center;
+      }
+
+      header img {
+        height: 5%;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #3b5d34;
+        margin-bottom: 10px;
+      }
+
+      p.sub {
+        text-align: center;
+        color: #5a3f2a;
+        margin-bottom: 28px;
+      }
+
+      /* Seletores */
+      .filtros {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      select {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+
+      /* Lista de lojas */
+      .lojas {
+        display: grid;
+        gap: 20px;
+      }
+
+      .loja {
+        background: rgba(255,255,255,0.95);
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        padding: 16px;
+      }
+
+      .loja h3 {
+        color: #3b5d34;
+        margin: 6px 0;
+      }
+
+      .loja p {
+        margin: 4px 0;
+        color: #5a3f2a;
+      }
+
+      .whats-link {
+        color: #3b5d34;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+
+      .whats-link:hover {
+        color: #517d47;
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: #3b5d34;
+        color: white;
+      }
+
+      footer img {
+        margin-top: 10px;
+      }
+
+      .menu-voltar {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .menu-voltar a {
+        background: #3b5d34;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.25s;
+      }
+
+      .menu-voltar a:hover {
+        background: #517d47;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="logo/logo.png" alt="Forno Nobre">
+    </a>
+      <h1>Nossas Lojas Físicas</h1>
+    </header>
+
+    <main>
+      <h2>Encontre uma loja perto de você</h2>
+      <p class="sub">Selecione o estado e a cidade para visualizar as lojas disponíveis 🍞</p>
+
+      <div class="filtros">
+        <select id="estado">
+          <option value="">Selecione o estado</option>
+          <option value="rj">Rio de Janeiro</option>
+          <option value="sp">São Paulo</option>
+          <option value="pr">Paraná</option>
+        </select>
+
+        <select id="cidade" disabled>
+          <option value="">Selecione a cidade</option>
+        </select>
+      </div>
+
+      <div class="lojas" id="lista-lojas"></div>
+
+      <div class="menu-voltar">
+        <a href="index.html">← Voltar à página inicial</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>Siga-nos no Instagram:</p>
+      <a href="https://www.instagram.com/fornonobreoficial?igsh=MWl4cDAyYXJ6MmdqdQ==" target="_blank">
+        <img src="logo/insta.png" width="80" alt="Instagram Forno Nobre">
+      </a>
+      <p>© 2025 Forno Nobre - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const cidadesPorEstado = {
+        rj: {
+          "Rio de Janeiro": [
+            { nome: "Forno Nobre - Copacabana", endereco: "Rua Atlântica, 1220", horario: "07h - 19h", telefone: "(21) 99888-1122" },
+            { nome: "Forno Nobre - Tijuca", endereco: "Rua Conde de Bonfim, 390", horario: "07h - 18h", telefone: "(21) 97777-2233" }
+          ],
+          Niterói: [
+            { nome: "Forno Nobre - Icaraí", endereco: "Rua Lopes Trovão, 220", horario: "07h - 19h", telefone: "(21) 96666-3344" }
+          ]
+        },
+        sp: {
+          "São Paulo": [
+            { nome: "Forno Nobre - Pinheiros", endereco: "Rua dos Três Irmãos, 85", horario: "07h - 20h", telefone: "(11) 95555-1122" },
+            { nome: "Forno Nobre - Moema", endereco: "Av. dos Eucaliptos, 900", horario: "07h - 19h", telefone: "(11) 94444-2211" }
+          ],
+          Campinas: [
+            { nome: "Forno Nobre - Cambuí", endereco: "Rua Conceição, 255", horario: "07h - 18h", telefone: "(19) 98888-3344" }
+          ],
+          "Santana de Parnaíba": [
+            { nome: "Forno Nobre - Centro Histórico", endereco: "Praça XV de Novembro, 45", horario: "07h - 18h", telefone: "(11) 93333-5566" }
+          ]
+        },
+        pr: {
+          Curitiba: [
+            { nome: "Forno Nobre - Batel", endereco: "Av. Sete de Setembro, 1100", horario: "07h - 19h", telefone: "(41) 97777-8899" },
+            { nome: "Forno Nobre - Água Verde", endereco: "Rua Chile, 440", horario: "07h - 18h", telefone: "(41) 98888-9900" }
+          ]
+        }
+      };
+
+      const estadoSelect = document.getElementById("estado");
+      const cidadeSelect = document.getElementById("cidade");
+      const listaLojas = document.getElementById("lista-lojas");
+
+      estadoSelect.addEventListener("change", () => {
+        const estado = estadoSelect.value;
+        cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>';
+        listaLojas.innerHTML = "";
+
+        if (!estado) {
+          cidadeSelect.disabled = true;
+          return;
+        }
+
+        const cidades = Object.keys(cidadesPorEstado[estado]);
+        cidades.forEach(cidade => {
+          const opt = document.createElement("option");
+          opt.value = cidade;
+          opt.textContent = cidade;
+          cidadeSelect.appendChild(opt);
+        });
+
+        cidadeSelect.disabled = false;
+      });
+
+      cidadeSelect.addEventListener("change", () => {
+        const estado = estadoSelect.value;
+        const cidade = cidadeSelect.value;
+        listaLojas.innerHTML = "";
+
+        if (!cidade) return;
+
+        const lojas = cidadesPorEstado[estado][cidade];
+        lojas.forEach(loja => {
+          const div = document.createElement("div");
+          div.classList.add("loja");
+          div.innerHTML = `
+            <h3>${loja.nome}</h3>
+            <p><strong>Endereço:</strong> ${loja.endereco}</p>
+            <p><strong>Horário:</strong> ${loja.horario}</p>
+            <p><strong>WhatsApp:</strong> <a class="whats-link" href="https://wa.me/55${loja.telefone.replace(/\D/g, '')}" target="_blank">${loja.telefone}</a></p>
+          `;
+          listaLojas.appendChild(div);
+        });
+      });
+    </script>
+  </body>
+</html>
